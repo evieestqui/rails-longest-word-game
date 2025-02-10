@@ -1,0 +1,10 @@
+<h1>Longest Word Game</h1>
+<p>Use the following letters to make a valid word:</p>
+<h2><%= @letters.join(', ') %></h2>
+
+<%= form_with url: "/score", method: :post, data: { turbo: false } do %>
+  <%= hidden_field_tag :letters, @letters.join(' ') %>
+  <%= label_tag :word, "Your word:" %>
+  <%= text_field_tag :word %>
+  <%= submit_tag "Submit" %>
+<% end %>
